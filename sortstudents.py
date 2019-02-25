@@ -8,10 +8,10 @@ class Student:
     self.cgpa = cgpa
 
   def __repr__(self):
-    return "[ %a, %a, %f ]" % (self.sid ,self.name , self.cgpa)
+    return "Student( %a, %a, %f )" % (self.sid ,self.name , self.cgpa)
 
   def __str__(self):
-    return "[ %a, %a, %f ]" % (self.sid ,self.name , self.cgpa)
+    return "An instance of Student: [ %a, %a, %f ]" % (self.sid ,self.name , self.cgpa)
 
 def sort(studentlist):
   return None
