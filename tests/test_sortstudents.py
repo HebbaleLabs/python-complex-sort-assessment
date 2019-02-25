@@ -42,7 +42,7 @@ class SortStudentsTest(unittest.TestCase):
     sortedcollection = sort(studentcollection)
     expectedcollection = [Student(2, 'Ayush', 4.6),
                           Student(4, 'Ammarah', 4.2),
-                          Student(1, 'Fiza', 3.6),
+                          Student(1, 'Roy', 3.6),
                           Student(3, 'Roy', 3.6),
                           Student(5, 'Roy', 3.6),]
     self.assertListEqual(expectedcollection, sortedcollection)

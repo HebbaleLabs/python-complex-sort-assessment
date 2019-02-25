@@ -1,4 +1,4 @@
-from operator import attrgetter
+from math import isclose
 
 class Student:
 
@@ -6,6 +6,12 @@ class Student:
     self.sid = sid
     self.name = name
     self.cgpa = cgpa
+
+  def __eq__(self, other):
+    return self.sid == other.sid and self.name == other.name and isclose(self.cgpa, other.cgpa)
+
+  def __hash__(self):
+    return hash(self.sid)
 
   def __repr__(self):
     return "Student( %a, %a, %f )" % (self.sid ,self.name , self.cgpa)
