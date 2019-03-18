@@ -40,7 +40,11 @@ class SortStudentsTest(unittest.TestCase):
     self.longMessage = True
     actual = sort(input_values)
     message = 'For input {0}, expected value = {1}, and actual value = {2}'.format(input_values, expected, actual)
-    self.assertListEqual(expected, actual, message)
+    try:
+      self.assertListEqual(expected, actual, message)
+    except AssertionError as e:
+      e.args = (message,)
+      raise
 
   @parameterized.expand([
     ('students with same cgpa different names',
@@ -78,7 +82,11 @@ class SortStudentsTest(unittest.TestCase):
     self.longMessage = True
     actual = sort(input_values)
     message = 'For input {0}, expected value = {1}, and actual value = {2}'.format(input_values, expected, actual)
-    self.assertListEqual(expected, actual, message)
+    try:
+      self.assertListEqual(expected, actual, message)
+    except AssertionError as e:
+      e.args += (message,)
+      raise
 
   @parameterized.expand([
     ('students with same cgpa and names',
@@ -116,4 +124,8 @@ class SortStudentsTest(unittest.TestCase):
     self.longMessage = True
     actual = sort(input_values)
     message = 'For input {0}, expected value = {1}, and actual value = {2}'.format(input_values, expected, actual)
-    self.assertListEqual(expected, actual, message)
+    try:
+      self.assertListEqual(expected, actual, message)
+    except AssertionError as e:
+      e.args += (message,)
+      raise
